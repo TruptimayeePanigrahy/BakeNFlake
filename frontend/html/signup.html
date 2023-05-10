@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGNUP</title>
+    <style>
+      body {
+        background: url(cake4.jpg);
+        background-size: cover;
+        background-position: center;
+        font-family: sans-serif;
+      }
+
+      #container {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 1px solid white;
+        height: 590px;
+        width: 35%;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 15px;
+        background: url(back_image2.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      #container > h1 {
+        text-align: center;
+        font-size: 60px;
+        font-weight: 100;
+        margin-top: 10px;
+      }
+
+      #container > input {
+        margin: auto;
+        display: block;
+        padding: 10px;
+        width: 80%;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      #container > button {
+        margin: auto;
+        display: block;
+        width: 85%;
+        padding: 9px;
+        border-radius: 5px;
+        font-size: 23px;
+        background-color: #ff3378;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+      }
+
+      #container > p {
+        text-align: center;
+        margin-top: -10px;
+        font-size: 17px;
+        font-weight: bold;
+      }
+
+      h4 {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 22px;
+        margin-top: 15px;
+        color: red;
+        text-decoration: none;
+      }
+
+      hr {
+        margin-top: 40px;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 25px;
+      }
+
+      span {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .last {
+        width: 95%;
+        margin: auto;
+        height: 65px;
+        border-radius: 20px;
+        margin-top: 43px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .last > div {
+        height: auto;
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      .first {
+        display: flex;
+        height: auto;
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      .first > div {
+        height: auto;
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      .first > div > img {
+        color: white;
+        margin-top: 18px;
+        margin-left: 25px;
+        width: 32px;
+      }
+
+      .first > div > p {
+        font-size: 13px;
+      }
+
+      /* Media queries for different screen sizes */
+
+      @media only screen and (max-width: 768px) {
+        /* Adjust the width of #container and font sizes for smaller screens */
+        #container {
+          width: 80%;
+        }
+
+        #container > h1 {
+          font-size: 40px;
+        }
+
+        #container > input {
+          width: 90%;
+          font-size: 16px;
+        }
+
+        #container > button {
+          width: 90%;
+          font-size: 18px;
+        }
+
+        #container > p {
+          font-size: 14px;
+        }
+
+        h4 {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Sign Up</h1>
+      <p>Create an account to continue to buying cakes</p>
+      <input type="text" id="name" placeholder="Enter your name" />
+      <br />
+      <input
+        type="text"
+        id="email"
+        placeholder="Enter your email..."
+        required
+      />
+      <br />
+      <input type="password" id="pass" placeholder="password..." required />
+      <br />
+      <button onclick="onSignup()">CONTINUE</button>
+      <hr />
+
+      <!-- <a href="http://localhost:8080/auth/google"><h4>Continue with google</h4></a> -->
+
+      <h3>
+        Already registered ? <a href="./login.html"><span>Login</span></a>
+      </h3>
+
+      <div class="last">
+        <div class="first">
+          <div>
+            <img
+              src="https://assets.winni.in/groot/2023/01/31/icons/logincart.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <p>Instant Checkout</p>
+          </div>
+        </div>
+        <div class="first">
+          <div>
+            <img
+              src="https://assets.winni.in/groot/2023/01/31/icons/logindiscount.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <p>Exclusive Offers</p>
+          </div>
+        </div>
+        <div class="first">
+          <div>
+            <img
+              src="https://assets.winni.in/groot/2023/01/31/icons/loginbox.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <p>Manage Your Orders</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const onSignup = () => {
+    const payload = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      pass: document.getElementById("pass").value,
+    };
+    fetch("https://handsome-nightshirt-cow.cyclic.app//users/register", {
+      // fetch("http://localhost:8080/users/register",{
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .then((err) => console.log(err));
+    if (
+      document.getElementById("name").value != "" &&
+      document.getElementById("email").value != "" &&
+      document.getElementById("pass").value != ""
+    ) {
+      alert("Signup Successfull");
+      window.location.href = "login.html";
+    } else {
+      alert("Enter email and passaword");
+    }
+  };
+</script>

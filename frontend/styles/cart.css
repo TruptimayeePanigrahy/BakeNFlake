@@ -1,0 +1,91 @@
+.cart {
+    text-align: center;
+    margin: 20px;
+}
+
+.cart-page{
+    display: flex;
+    margin: 3%;
+    /* border: 2px solid red; */
+}
+
+#cart-page-left{
+    display: block;
+    margin: 2%;
+    width: 70%;
+    /* border: 2px solid green; */
+}
+
+#cart-page-right{
+    display: block;
+    margin: 2%;
+    width: 30%;
+    padding: 2%;
+    /* border: 2px solid green; */
+}
+
+#card{
+    margin: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+
+#card > div > img{
+    width: 80%;
+    height: auto;
+}
+
+#card > div{
+    width: 50%;
+}
+
+#card>div:first-child{
+    width: 50%;
+    text-align: right;
+    margin-right: 10%;
+}
+
+#quantityBtnDiv{
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#quantityBtnDec,#quantityBtnInc{
+    /* padding: 100px 200px; */
+    width:35%
+}
+
+#card button, #pay-button{
+    padding: 3%;
+    color: white;
+    /* margin: 0 10px 0 0; */
+    border: 0px;
+    background-color: rgb(237,33,124);
+}
+
+#card button:hover, #pay-button:hover{
+    background-color: rgb(203, 72, 131);
+}
+
+/* #cart-page-left>#card{
+    border-radius: 5%;
+} */
+
+#cart-page-right{
+    gap: 30px;
+    height:180px;
+    line-height: 30px;
+    margin-top:50px;
+    border-radius: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.div2{
+    margin: 10px;
+}
